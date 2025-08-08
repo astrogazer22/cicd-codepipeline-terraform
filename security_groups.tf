@@ -5,30 +5,27 @@ resource "aws_security_group" "sg" {
 
 
   ingress {
-    description     = "SSH from VPC"
-    from_port       = var.port_22
-    to_port         = var.port_22
-    protocol        = var.protocol_tcp
-    cidr_blocks     = [var.cidr_block_all]
-    security_groups = [aws_security_group.lb_sg.id]
+    description = "SSH from VPC"
+    from_port   = var.port_22
+    to_port     = var.port_22
+    protocol    = var.protocol_tcp
+    cidr_blocks = [var.cidr_block_all]
   }
 
   ingress {
-    description     = "HTTP from VPC"
-    from_port       = var.port_80
-    to_port         = var.port_80
-    protocol        = var.protocol_tcp
-    cidr_blocks     = [var.cidr_block_all]
-    security_groups = [aws_security_group.lb_sg.id]
+    description = "HTTP from VPC"
+    from_port   = var.port_80
+    to_port     = var.port_80
+    protocol    = var.protocol_tcp
+    cidr_blocks = [var.cidr_block_all]
   }
 
   ingress {
-    description     = "HTTPS from VPC"
-    from_port       = 443
-    to_port         = 443
-    protocol        = var.protocol_tcp
-    cidr_blocks     = [var.cidr_block_all]
-    security_groups = [aws_security_group.lb_sg.id]
+    description = "HTTPS from VPC"
+    from_port   = 443
+    to_port     = 443
+    protocol    = var.protocol_tcp
+    cidr_blocks = [var.cidr_block_all]
   }
 
   egress {
@@ -48,12 +45,11 @@ resource "aws_security_group" "sg" {
   }
 
   egress {
-    description     = "HTTPS from VPC"
-    from_port       = 443
-    to_port         = 443
-    protocol        = var.protocol_tcp
-    cidr_blocks     = [var.cidr_block_all]
-    security_groups = [aws_security_group.lb_sg.id]
+    description = "HTTPS from VPC"
+    from_port   = 443
+    to_port     = 443
+    protocol    = var.protocol_tcp
+    cidr_blocks = [var.cidr_block_all]
   }
 
 }

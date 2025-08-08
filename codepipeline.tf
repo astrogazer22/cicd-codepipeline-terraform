@@ -3,13 +3,9 @@ resource "aws_codepipeline" "codepipeline" {
   role_arn = aws_iam_role.codepipeline_role.arn
 
   artifact_store {
-    location = aws_s3_bucket.cicd-test-bucket.bucket
+    location = aws_s3_bucket.astrogazer-nodejs-s3-bucket.bucket
     type     = "S3"
 
-    encryption_key {
-      id   = data.aws_kms_alias.s3kmskey.arn
-      type = "KMS"
-    }
   }
 
   stage {
@@ -18,16 +14,16 @@ resource "aws_codepipeline" "codepipeline" {
     action {
       name             = "Source"
       category         = "Source"
-      owner            = "GitHub"
+      owner            = "AWS"
       provider         = "CodeStarSourceConnection"
       version          = "1"
       output_artifacts = ["source_output"]
 
       configuration = {
-        ConnectionArn        = aws_codestarconnections_connection.github_connection.arn
-        FullRepositoryId     = "https://github.com/astrogazer22/cicd-codepipeline-terraform"
-        BranchName           = "main"
-        
+        ConnectionArn    = aws_codestarconnections_connection.github_connection.arn
+        FullRepositoryId = "https://github.com/astrogazer22/cicd-codepipeline-terraform"
+        BranchName       = "main"
+
       }
     }
   }
@@ -45,7 +41,7 @@ resource "aws_codepipeline" "codepipeline" {
       version          = "1"
 
       configuration = {
-         ProjectName = aws_codebuild_project.nodejs_app_build.name
+        ProjectName = aws_codebuild_project.nodejs_app_build.name
       }
     }
   }

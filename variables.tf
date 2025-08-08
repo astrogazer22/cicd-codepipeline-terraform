@@ -40,7 +40,7 @@ variable "cidr_ipv6" {
 
 variable "ami" {
   type    = string
-  default = "ami-08a6efd148b1f7504"
+  default = "ami-0d8ec96c89ad62005"
 }
 
 variable "instance_type" {
