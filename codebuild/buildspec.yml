@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo "Installing dependencies..."
+      - npm install
+
+  build:
+    commands:
+      - echo "Build started on `date`"
+      - npm run build || echo "No build script defined, skipping"
+
+  post_build:
+    commands:
+      - echo "Build completed. Preparing artifacts..."
+      - zip -r app.zip * .[^.]*
+
+artifacts:
+  files:
+    - app.zip
+    - appspec.yml
+    - scripts/**/*
+    - node_modules/**/*
+    - package.json
+    - server.js
+  discard-paths: no
