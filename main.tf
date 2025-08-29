@@ -8,7 +8,7 @@ resource "aws_instance" "instance" {
   subnet_id            = aws_subnet.public.id
   security_groups      = [aws_security_group.sg.id]
   user_data            = file("ec2-user-data.sh")
-  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
+  iam_instance_profile = aws_iam_instance_profile.ec2_codedeploy_instance_profile.name
 
   tags = {
     role = "nodejs-deploy"
