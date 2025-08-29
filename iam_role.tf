@@ -32,6 +32,11 @@ resource "aws_iam_role_policy_attachment" "s3_full_access" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 }
 
+resource "aws_iam_role_policy_attachment" "s3_full_access" { 
+  role = aws_iam_role.ec2_codedeploy_role.name 
+  policy_arn = "arn:aws:iam::aws:policy/CloudWatchFullAccess"
+}
+
 resource "aws_iam_role_policy_attachment" "codedeploy_service_role_attach" { 
   role = aws_iam_role.ec2_codedeploy_role.name 
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"
