@@ -11,7 +11,8 @@ resource "aws_instance" "instance" {
   iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
 
   tags = {
-    role = "nodejs-app-server"
+    role = "nodejs-deploy"
+    Name = "nodejs-server-1"
   }
 }
 
