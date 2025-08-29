@@ -12,9 +12,13 @@ resource "aws_iam_role" "ec2_role" {
   })
 }
 
-
+resource "aws_iam_role_policy_attachment" "ec2_codedeploy_policy_attach" { 
+  role = aws_iam_role.ec2_codedeploy_role.name 
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforAWSCodeDeploy" 
+}
 
 resource "aws_iam_instance_profile" "ec2_profile" {
   name = "ec2-instance-profile"
   role = aws_iam_role.ec2_role.name
 }
+
