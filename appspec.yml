@@ -3,7 +3,7 @@ os: linux
 IgnoreApplicationStopFailures: true
 files:
   - source: /
-    destination: /home/ec2-user/nodeapp
+    destination: /var/www/html
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies.sh
