@@ -22,3 +22,7 @@ resource "aws_iam_instance_profile" "ec2_profile" {
   role = aws_iam_role.ec2_role.name
 }
 
+resource "aws_iam_instance_profile" "ec2_codedeploy_instance_profile" { 
+  name = "EC2CodeDeployInstanceProfile" 
+  role = aws_iam_role.ec2_codedeploy_role.name 
+}
