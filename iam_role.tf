@@ -4,6 +4,11 @@ resource "aws_iam_role" "ec2_role" {
     Version = "2012-10-17",
     Statement = [{
       Action = "sts:AssumeRole",
+        "codedeploy:*",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
       Principal = {  
         Service = "ec2.amazonaws.com"
       },
