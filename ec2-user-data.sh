@@ -1,7 +1,7 @@
-#!/bin/bash
-yum update -y
-yum install -y ruby wget
-cd /home/ec2-user
-wget https://aws-codedeploy-${var.aws_region}.s3.${var.aws_region}.amazonaws.com/latest/install
-chmod +x ./install
-./install auto
+#!/bin/bash 
+yum update -y 
+amazon-linux-extras enable nginx1 
+yum install -y nginx 
+systemctl start nginx 
+systemctl enable nginx
+echo "<h1>Deployed with Terraform & CodeDeploy</h1>" > /usr/share/nginx/html/index.html
