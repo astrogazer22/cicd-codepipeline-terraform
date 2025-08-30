@@ -3,7 +3,13 @@ os: linux
 IgnoreApplicationStopFailures: true
 files:
   - source: /
-    destination: /var/www/html
+    destination: /var/www
+
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ec2-user
+    
 hooks:
   BeforeInstall:
     - location: install_dependencies.sh
