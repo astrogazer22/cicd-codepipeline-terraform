@@ -26,4 +26,7 @@ artifacts:
     - node_modules/**/*
     - package.json
     - server.js
+    - install_dependencies.sh
+    - start_server.sh
+    - stop_server.sh
   discard-paths: no
