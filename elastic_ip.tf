@@ -1,6 +1,6 @@
 # Create Elastic IP
 resource "aws_eip" "web_eip" {
-  domain = true
+  domain = "vpc"
   tags = {
     Name = "nodejs-web-eip"
   }
