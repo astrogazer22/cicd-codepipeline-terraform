@@ -69,7 +69,7 @@ variable "cidr_block_vpc" {
 }
 
 variable "availability_zone" {
-  type = string
+  type    = string
   default = "ap-southeast-1a"
 }
 
@@ -111,4 +111,89 @@ variable "metric_statistic" {
 variable "metric_threshold" {
   type    = number
   default = 70
+}
+
+variable "log_retention_period" {
+  type    = number
+  default = 7
+}
+
+variable "cloudwatch_log_path" {
+  type    = string
+  default = "/ec2/app/logs"
+}
+
+variable "tag_role" {
+  type    = string
+  default = "nodejs-deploy"
+}
+
+variable "tag_name" {
+  type    = string
+  default = "nodejs-server-1"
+}
+
+variable "tag_s3_name" {
+  type    = string
+  default = "My bucket"
+}
+
+variable "tag_s3_environment" {
+  type    = string
+  default = "Dev"
+}
+
+variable "tag_subnet" {
+  type    = string
+  default = "public subnet"
+}
+
+variable "codebuild_timeout" {
+  type    = number
+  default = 5
+}
+
+variable "codebuild_compute_type" {
+  type    = string
+  default = "BUILD_GENERAL1_SMALL"
+}
+
+variable "codebuild_image" {
+  type = string
+  default = "aws/codebuild/standard:6.0"
+}
+
+variable "codebuild_container_type" {
+  type = string
+  default = "LINUX_CONTAINER"
+}
+
+variable "codebuild_credential_type" {
+  type = string
+  default = "CODEBUILD"
+}
+
+variable "codebuild_artifact" {
+  type = string
+  default = "CODEPIPELINE"
+}
+
+variable "codebuild_source_type" {
+  type = string
+  default = "CODEPIPELINE"
+}
+
+variable "codebuild_source_buildspec" {
+  type = string
+  default = "buildspec.yml"
+}
+
+variable "codebuild_environment_tag" {
+  type = string
+  default = "production"
+}
+
+variable "codebuild_project_tag" {
+  type = string
+  default = "ci-cd-demo"
 }
