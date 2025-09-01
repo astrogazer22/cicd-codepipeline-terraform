@@ -65,6 +65,9 @@ terraform apply -auto-approve
 4. **Artifacts stored in S3** → zipped output  
 5. **CodeDeploy deploys to EC2** → executes `appspec.yml`  
 6. **Application available on EC2 public IP**
+7. **Logs from the EC2 instance are sent to CloudWatch**
+8. **Cloudwatch alarm is triggered if CPU usage exceeds 70%**
+
 
 ## 🔗 Approving GitHub Connection in AWS Console
 
