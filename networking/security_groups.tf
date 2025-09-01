@@ -22,15 +22,15 @@ resource "aws_security_group" "sg" {
 
   ingress {
     description = "HTTPS from VPC"
-    from_port   = 443
-    to_port     = 443
+    from_port   = var.port_443
+    to_port     = var.port_443
     protocol    = var.protocol_tcp
     cidr_blocks = [var.cidr_block_all]
   }
 
   egress {
-    from_port        = 0
-    to_port          = 0
+    from_port        = var.null
+    to_port          = var.null
     protocol         = var.protocol_all
     cidr_blocks      = [var.cidr_block_all]
     ipv6_cidr_blocks = [var.cidr_ipv6]
@@ -46,8 +46,8 @@ resource "aws_security_group" "sg" {
 
   egress {
     description = "HTTPS from VPC"
-    from_port   = 443
-    to_port     = 443
+    from_port   = var.port_443
+    to_port     = var.port_443
     protocol    = var.protocol_tcp
     cidr_blocks = [var.cidr_block_all]
   }
