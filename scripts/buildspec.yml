@@ -22,8 +22,8 @@ artifacts:
   files:
     - app.zip
     - appspec.yml
-    - scripts/**/*
-    - node_modules/**/*
+    - scripts/*
+    - node_modules/*
     - package.json
     - server.js
     - install_dependencies.sh
