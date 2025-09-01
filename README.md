@@ -34,6 +34,10 @@ flowchart TD
 ```bash
 git clone https://github.com/<your-username>/<repo-name>.git
 cd <repo-name>
+
+Sample :
+git clone https://github.com/astrogazer22/cicd-codepipeline-terraform.git
+cd cicd-codepipeline-terraform
 ```
 
 ### 2️⃣ Initialize Terraform
