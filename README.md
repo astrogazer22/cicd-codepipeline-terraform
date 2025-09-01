@@ -129,6 +129,20 @@ tail -n 20 /opt/codedeploy-agent/deployment-root/deployment-logs/codedeploy-agen
 
 ---
 
+### Test Node-js Application 
+
+1. Test Node-js Application
+
+```bash
+curl http://localhost:3000
+```
+This should return the response from your Node.js application.
+
+```bash
+node --version
+```
+This should return the node-js app version
+
 ## 🔧 Automated Troubleshooting Script
 
 Save the following as `troubleshoot.sh` on your EC2 instance:
