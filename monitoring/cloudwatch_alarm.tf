@@ -4,15 +4,15 @@ resource "aws_cloudwatch_log_group" "ec2_logs" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "cpu_high" {
-  alarm_name          = "HighCPUUtilization"
-  comparison_operator = "GreaterThanThreshold"
-  evaluation_periods  = 2
-  metric_name         = "CPUUtilization"
-  namespace           = "AWS/EC2"
-  period              = 60
-  statistic           = "Average"
-  threshold           = 70
-  alarm_description   = "This alarm triggers if CPU usage exceeds 70% for 2 minutes"
+  alarm_name          = var.alarm_name
+  comparison_operator = var.comparison_operator
+  evaluation_periods  = var.cloudwatch_evaluation_period
+  metric_name         = var.metric_name
+  namespace           = var.namespace
+  period              = var.metric_period
+  statistic           = var.metric_statistic
+  threshold           = var.metric_threshold
+  alarm_description   = "This alarm triggers if CPU usage exceeds ${var.metric_threshold} for ${var.metric_period} minutes"
   alarm_actions       = [aws_sns_topic.alerts.arn]
 
   dimensions = {
