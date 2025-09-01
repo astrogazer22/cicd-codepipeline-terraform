@@ -1,5 +1,5 @@
 resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = var.cidr_block_vpc
 }
 
 resource "aws_instance" "instance" {
@@ -7,20 +7,21 @@ resource "aws_instance" "instance" {
   instance_type        = var.instance_type
   subnet_id            = aws_subnet.public.id
   security_groups      = [aws_security_group.sg.id]
-  user_data            = file("scripts/ec2-user-data.sh")
-  iam_instance_profile = aws_iam_instance_profile.ec2_codedeploy_instance_profile.name
+  user_data            = file("ec2-user-data.sh")
+  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
 
   tags = {
-    role = "nodejs-deploy"
-    Name = "nodejs-server-1"
+    role = var.tag_role
+    Name = var.tag_name
   }
+
 }
 
 resource "aws_s3_bucket" "astrogazer-nodejs-s3-bucket" {
   bucket = "astrogazer-nodejs-s3-bucket"
 
   tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
+    Name        = var.tag_s3_name
+    Environment = var.tag_s3_environment
   }
 }
