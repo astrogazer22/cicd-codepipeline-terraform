@@ -131,17 +131,17 @@ tail -n 20 /opt/codedeploy-agent/deployment-root/deployment-logs/codedeploy-agen
 
 ### Test Node-js Application 
 
-1. Test Node-js Application
+This should return the response from your Node.js application
 
 ```bash
 curl http://localhost:3000
 ```
-This should return the response from your Node.js application.
+This should return the node-js app version
 
 ```bash
 node --version
 ```
-This should return the node-js app version
+
 
 ## 🔧 Automated Troubleshooting Script
 
