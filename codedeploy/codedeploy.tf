@@ -9,23 +9,21 @@ resource "aws_codedeploy_deployment_group" "my_deploy_group" {
   app_name              = aws_codedeploy_app.nodejs_app_deploy.name
   deployment_group_name = "nodejs-deployment-group"
   service_role_arn      = aws_iam_role.codedeploy_role.arn
+  
 
-  # Deployment config: e.g., CodeDeploy default "CodeDeployDefault.OneAtATime"
+
   deployment_config_name = "CodeDeployDefault.AllAtOnce"
 
-  # Target by EC2 Tag (recommended) - ensure EC2 instances have this tag
+  # Ensure EC2 instances have this tag
   ec2_tag_set {
     ec2_tag_filter {
-      key   = "role" # e.g., "Name" or "Role"
+      key   = "role" 
       type  = "KEY_AND_VALUE"
-      value = "nodejs-deploy" # e.g., "nodejs-app-server"
+      value = "nodejs-deploy" 
     }
   }
 
-  # OPTIONAL: If using Auto Scaling groups:
-  # auto_scaling_groups = [aws_autoscaling_group.my_asg.name]
 
-  # File existence and lifecycle behavior
   trigger_configuration {
     trigger_events     = ["DeploymentStart", "DeploymentSuccess", "DeploymentFailure"]
     trigger_name       = "notify-on-deploy"
