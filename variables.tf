@@ -8,6 +8,11 @@ variable "port_80" {
   default = 80
 }
 
+variable "port_443" {
+  type    = number
+  default = 443
+}
+
 variable "port_3306" {
   type    = number
   default = 3306
@@ -45,7 +50,7 @@ variable "ami" {
 
 variable "instance_type" {
   type    = string
-  default = "t2.large"
+  default = "t2.micro"
 }
 
 variable "github_token" {
@@ -58,3 +63,12 @@ variable "repo_owner" {
   default = "astrogazer22"
 }
 
+variable "cidr_block_vpc" {
+  type    = string
+  default = "10.0.1.0/24"
+}
+
+variable "availability_zone" {
+  type = string
+  default = "ap-southeast-1a"
+}
