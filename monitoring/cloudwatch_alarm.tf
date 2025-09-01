@@ -1,6 +1,6 @@
 resource "aws_cloudwatch_log_group" "ec2_logs" {
-  name              = "/ec2/app/logs"
-  retention_in_days = 7
+  name              = var.cloudwatch_log_path
+  retention_in_days = var.log_retention_period
 }
 
 resource "aws_cloudwatch_metric_alarm" "cpu_high" {
