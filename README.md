@@ -151,23 +151,23 @@ Save the following as `troubleshoot.sh` on your EC2 instance:
 #!/bin/bash
 # Troubleshooting script for AWS CodeDeploy & Node.js app
 
-echo "🔄 Restarting CodeDeploy agent..."
+echo "Restarting CodeDeploy agent..."
 sudo systemctl restart codedeploy-agent
 sudo systemctl status codedeploy-agent --no-pager
 
-echo "🧹 Removing stale PID lock files..."
+echo "Removing stale PID lock files..."
 sudo rm -f /opt/codedeploy-agent/deployment-root/deployment-instructions/*_pid.lock
 
-echo "📜 Showing CodeDeploy agent logs..."
+echo "Showing CodeDeploy agent logs..."
 tail -n 20 /var/log/aws/codedeploy-agent/codedeploy-agent.log
 
-echo "📜 Showing deployment logs..."
+echo "Showing deployment logs..."
 tail -n 20 /opt/codedeploy-agent/deployment-root/deployment-logs/codedeploy-agent-deployments.log
 
-echo "📜 Checking Node.js service logs..."
+echo "Checking Node.js service logs..."
 sudo journalctl -u nodejs -n 20 --no-pager
 
-echo "✅ Troubleshooting completed."
+echo "Troubleshooting completed."
 ```
 
 Run:
@@ -177,11 +177,6 @@ chmod +x troubleshoot.sh
 ```
 
 ---
-
-## ✅ Next Steps
-- Add monitoring with **CloudWatch Alarms & Logs**  
-- Configure HTTPS with **ACM + ALB**  
-- Scale using **Auto Scaling Group** & **Load Balancer**  
 
 
 
