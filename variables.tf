@@ -72,3 +72,43 @@ variable "availability_zone" {
   type = string
   default = "ap-southeast-1a"
 }
+
+variable "alarm_name" {
+  type    = string
+  default = "HighCPUUtilization"
+}
+
+variable "comparison_operator" {
+  type    = string
+  default = "GreaterThanThreshold"
+}
+
+variable "metric_name" {
+  type    = string
+  default = "CPUUtilization"
+}
+
+variable "cloudwatch_evaluation_period" {
+  type    = number
+  default = 2
+}
+
+variable "namespace" {
+  type    = string
+  default = "AWS/EC2"
+}
+
+variable "metric_period" {
+  type    = number
+  default = 120
+}
+
+variable "metric_statistic" {
+  type    = string
+  default = "Average"
+}
+
+variable "metric_threshold" {
+  type    = number
+  default = 70
+}
