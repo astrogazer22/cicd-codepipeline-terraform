@@ -60,7 +60,39 @@ terraform apply -auto-approve
 3. **CodeBuild runs build** → executes `buildspec.yml`  
 4. **Artifacts stored in S3** → zipped output  
 5. **CodeDeploy deploys to EC2** → executes `appspec.yml`  
-6. **Application available on EC2 public IP**  
+6. **Application available on EC2 public IP**
+
+##🔗 Approving GitHub Connection in AWS Console
+
+```bash
+
+When using aws_codestarconnections_connection in Terraform for GitHub integration, the connection remains Pending until manually approved in the AWS Console. Without this step, CodePipeline cannot fetch your source code.
+
+Steps to approve the connection:
+
+Go to the AWS Management Console.
+
+Navigate to:
+Developer Tools → Connections
+(or search for “CodeStar Connections” in the console).
+
+You will see the connection you created with Terraform in Pending state.
+
+Click on the connection name.
+
+Select Update pending connection.
+
+A GitHub authorization pop-up will appear.
+
+Log in with your GitHub account.
+
+Authorize AWS CodePipeline to access your repositories.
+
+After successful authorization, the connection status should change to Available.
+
+✅ Once the connection is approved, rerun terraform apply or Release Change in CodePipeline, and your pipeline will work correctly.
+
+```
 
 ---
 
