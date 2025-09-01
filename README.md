@@ -62,7 +62,7 @@ terraform apply -auto-approve
 5. **CodeDeploy deploys to EC2** → executes `appspec.yml`  
 6. **Application available on EC2 public IP**
 
-##🔗 Approving GitHub Connection in AWS Console
+## 🔗 Approving GitHub Connection in AWS Console
 
 ```bash
 
