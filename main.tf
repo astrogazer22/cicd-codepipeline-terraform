@@ -7,7 +7,7 @@ resource "aws_instance" "instance" {
   instance_type        = var.instance_type
   subnet_id            = aws_subnet.public.id
   security_groups      = [aws_security_group.sg.id]
-  user_data            = file("ec2-user-data.sh")
+  user_data            = file("scripts/ec2-user-data.sh")
   iam_instance_profile = aws_iam_instance_profile.ec2_codedeploy_instance_profile.name
 
   tags = {
