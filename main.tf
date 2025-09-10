@@ -35,7 +35,7 @@ module "ec2" {
   instance_type            = "t2.micro"
   ec2_subnet_id            = module.networking.public_subnet_id
   security_group_id        = module.security.security_group_id
-  ec2_user_data            = "./modules/scripts/ec2-user-data.sh"
+  ec2_user_data            = "./modules/ec2-user-data.sh"
   eip_domain               = "vpc"
   eip_name                 = "nodejs-web-eip"
   ec2_iam_instance_profile = module.iam_role_ec2.instance_profile_name
@@ -92,7 +92,7 @@ module "codebuild" {
   codebuild_container_type   = "LINUX_CONTAINER"
   codebuild_credential_type  = "CODEBUILD"
   codebuild_source_type      = "CODEPIPELINE"
-  codebuild_source_buildspec = "./scripts/buildspec.yml"
+  codebuild_source_buildspec = "./buildspec.yml"
   codebuild_environment_tag  = "production"
   codebuild_project_tag      = "ci-cd-demo"
 }
