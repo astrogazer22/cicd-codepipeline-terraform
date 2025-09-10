@@ -53,19 +53,9 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
-variable "github_token" {
-  type    = string
-  default = ""
-}
-
 variable "repo_owner" {
   type    = string
   default = "astrogazer22"
-}
-
-variable "cidr_block_vpc" {
-  type    = string
-  default = "10.0.1.0/24"
 }
 
 variable "availability_zone" {
@@ -159,41 +149,46 @@ variable "codebuild_compute_type" {
 }
 
 variable "codebuild_image" {
-  type = string
+  type    = string
   default = "aws/codebuild/standard:6.0"
 }
 
 variable "codebuild_container_type" {
-  type = string
+  type    = string
   default = "LINUX_CONTAINER"
 }
 
 variable "codebuild_credential_type" {
-  type = string
+  type    = string
   default = "CODEBUILD"
 }
 
 variable "codebuild_artifact" {
-  type = string
+  type    = string
   default = "CODEPIPELINE"
 }
 
 variable "codebuild_source_type" {
-  type = string
+  type    = string
   default = "CODEPIPELINE"
 }
 
 variable "codebuild_source_buildspec" {
-  type = string
+  type    = string
   default = "buildspec.yml"
 }
 
 variable "codebuild_environment_tag" {
-  type = string
+  type    = string
   default = "production"
 }
 
 variable "codebuild_project_tag" {
-  type = string
+  type    = string
   default = "ci-cd-demo"
+}
+
+variable "aws_region" {
+  type = string
+  default = "ap-southeast-1"
 }
