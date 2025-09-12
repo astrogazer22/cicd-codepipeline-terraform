@@ -6,15 +6,6 @@ This project demonstrates how to build a **CI/CD pipeline using Terraform** on A
 
 ## 📐 Architecture
 
-```mermaid
-flowchart TD
-    A[GitHub Repo] -->|Push Code| B[CodePipeline]
-    B --> C[CodeBuild]
-    C --> D[S3 Artifact Store]
-    D --> E[CodeDeploy]
-    E --> F[EC2 Instance]
-    F -->|App Running| G[User Browser]
-```
 
 ---
 
