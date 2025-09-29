@@ -7,7 +7,8 @@ This project demonstrates how to build a **CI/CD pipeline using Terraform** on A
 
 ## 📐 Architecture
 
-<img width="1145" height="661" alt="Screenshot (19)" src="https://github.com/user-attachments/assets/d8667785-0286-4416-9d4b-56c05ee3e9f0" />
+<img width="1145" height="658" alt="Screenshot (20)" src="https://github.com/user-attachments/assets/d0e3f199-52f5-4dcc-8fd2-e76424543fc3" />
+
 
 
 
